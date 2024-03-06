@@ -48,7 +48,14 @@ public class TodoList {
      */
     public String mostUrgent() {
 
-        return null;
+        Task mostUrgentTask = tasks.get(0);
+        for (Task task : tasks) {
+            if (task.getUrgency() > mostUrgentTask.getUrgency()) {
+                mostUrgentTask = task;
+            }
+        }
+
+        return mostUrgentTask.getName();
 
     }
 
@@ -57,8 +64,16 @@ public class TodoList {
      * @return the average urgency across all tasks (a double).
      */
     public double averageUrgency() {
+        if (tasks.isEmpty()) {
+            return 0.0;
+        }
 
-        return 0.0;
+        int sum = 0;
+        for (Task task : tasks) {
+            sum += task.getUrgency();
+        }
+
+        return (double) sum / tasks.size();
 
     }
 
@@ -77,7 +92,6 @@ public class TodoList {
      * BONUS Challenge:  Sort your to-do list in descending order of urgency
      */
     public String toString() {
-
         return "";
         
     }
