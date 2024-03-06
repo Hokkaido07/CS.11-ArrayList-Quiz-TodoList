@@ -92,8 +92,13 @@ public class TodoList {
      * BONUS Challenge:  Sort your to-do list in descending order of urgency
      */
     public String toString() {
-        return "";
-        
+        String result = "To-do List of " + owner + "\n";
+        for (Task task : tasks) {
+            result += task.getName() + "\t" + task.getUrgency() + "\n";
+        }
+        return result;
     }
+        
+
 
 }
